@@ -7,7 +7,7 @@ steps:
       chown www-data:www-data $SRC_DIR
       cd $SRC_DIR
       apt-get update
-      apt-get install -y zlib1g-dev buid-essential ruby-full
+      apt-get install -y zlib1g-dev build-essential ruby-full
       ruby -v
       gem install bundler
       bundle install
