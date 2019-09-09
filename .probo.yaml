@@ -1,0 +1,14 @@
+image: proboci/ubuntu-16.04-lamp:php-7.1
+steps:
+  - name: Setup Slate docs.
+    plugin: Script
+    script: |
+      chown www-data:www-data $SRC_DIR
+      cd $SRC_DIR
+      apt-get update
+      apt-get install -y ruby-full
+      ruby -v
+      gem install bundler
+      bundle install
+      bundle exec middleman build --clean
+      ln -s $SRC_DIR/build /var/www/html
