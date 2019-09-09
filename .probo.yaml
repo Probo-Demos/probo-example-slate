@@ -1,0 +1,9 @@
+steps:
+  - name: Setup Slate docs.
+    plugin: Script
+    script: |
+      ln -s $SRC_DIR /var/www/html
+      chown $SRC_DIR www-data:www-data
+      cd $SRC_DIR
+      bundle install
+      bundle exec middleman build --clean
