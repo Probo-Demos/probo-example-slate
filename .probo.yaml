@@ -3,7 +3,6 @@ steps:
   - name: Setup Slate docs.
     plugin: Script
     script: |
-      ln -s $SRC_DIR /var/www/html
       chown www-data:www-data $SRC_DIR
       cd $SRC_DIR
       apt-get update
@@ -12,3 +11,4 @@ steps:
       gem install bundler
       bundle install
       bundle exec middleman build --clean
+      ln -s $SRC_DIR/build /var/www/html
