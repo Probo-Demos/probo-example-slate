@@ -3,7 +3,8 @@ steps:
     plugin: Script
     script: |
       ln -s $SRC_DIR /var/www/html
-      chown $SRC_DIR www-data:www-data
+      chown www-data:www-data $SRC_DIR
       cd $SRC_DIR
+      gem install bundler
       bundle install
       bundle exec middleman build --clean
